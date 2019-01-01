@@ -11,7 +11,6 @@ const Search = (props: { placeHolder: string }) => {
             <TextInput 
                 placeholder={props.placeHolder}
                 placeholderTextColor='#F7F7F7'
-                color='white'
                 style={textInputStyle} 
             />
         </View>
@@ -44,6 +43,8 @@ const styles = {
         alignItems: 'flex-start',
         justifyContent: 'center',
         marginStart: 12,
+        color: 'white',
+        padding: 0
     }
 };
 

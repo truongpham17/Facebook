@@ -19,8 +19,7 @@ class MainScreen extends Component {
     });
     render() {
         return (
-            <View style={{ flex: 1, marginTop: 36 }}>
-                <Header placeHolder='Search' />
+            <View style={{ flex: 1 }}>
             </View>
         );
     }

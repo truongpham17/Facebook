@@ -30,13 +30,14 @@ const styles = {
         borderRadius: 10,
         borderWidth: 1,
         borderColor: '#F7F7F7',
-        height: 100,
-        width: 80,
+        height: 140,
+        width: 118,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 2,
         elevation: 1,
         overflow: 'hidden',
+        marginRight: 4
 
     },
     imgStyle: {

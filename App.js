@@ -1,7 +1,8 @@
 import { createAppContainer } from 'react-navigation';
-import AppNavigator from './src/components/screens';
-import {View , Text } from 'react-native';
+import { View, Text } from 'react-native';
 import React from 'react';
+import AppNavigator from './src/components/screens';
+
 
 const App = () => {
     return (

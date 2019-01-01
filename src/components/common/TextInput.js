@@ -2,17 +2,30 @@
 import React from 'react';
 import { View, TextInput as ReTextInput } from 'react-native';
 
-
-const TextInput = (props: { placeholder: string }) => {
-    const { containerStyle, textInputStyle } = styles;
+type Props = {
+    placeholder: string,
+    icons: Array<any>
+}
+const TextInput = (props: Props) => {
+    const { containerStyle, textInputStyle, containerIconStyle } = styles;
+    const { placeholder, icons } = props;
+    const iconsNode = [];
+    if (icons) {
+        icons.forEach(element => {
+            iconsNode.push(element);
+        });
+    }
+    
     return (
         <View style={containerStyle}>
             <ReTextInput 
                 style={textInputStyle} 
-                placeholder={props.placeholder}
+                placeholder={placeholder}
                 placeholderTextColor='#646464'
-                color='#646464'
             />
+            <View style={containerIconStyle}>
+                {iconsNode}
+            </View>
         </View>
     );
 };
@@ -21,25 +34,26 @@ const styles = {
     containerStyle: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignItems: 'center',
         borderColor: '#7c8491',
         borderWidth: 1,
         borderRadius: 16,
         height: 40,
         alignSelf: 'stretch',
-        maxHeight: 32,
-        backgroundColor: '#F7F7F7',
+        backgroundColor: '#ffffff',
         padding: 4,
-        marginStart: 8,
-        marginEnd: 8
-
     },
     textInputStyle: {
-        flex: 20,
         alignItems: 'flex-start',
         justifyContent: 'center',
         marginStart: 12,
+        padding: 0,
+        color: '#646464'
+    },
+    containerIconStyle: {
+        flexDirection: 'row',
+        marginEnd: 4
     }
 };
 

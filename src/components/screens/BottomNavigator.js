@@ -1,5 +1,6 @@
 // @flow
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import React from 'react';
 import MainScreen from './MainScreen';
 import SearchGroup from './SearchGroup';
 import SearchVideo from './SearchVideo';
@@ -33,8 +34,8 @@ export default createMaterialBottomTabNavigator({
     barStyle: { 
         backgroundColor: '#F7F7F7', 
         height: 46, 
-        marginBottom: 40, 
         justifyContent: 'center',
     },
+   
 });
 

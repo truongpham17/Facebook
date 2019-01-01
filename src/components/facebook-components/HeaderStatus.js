@@ -30,16 +30,18 @@ const styles = {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        maxHeight: 60,
-        marginStart: 10,
-        marginEnd: 10,
+        maxHeight: 48,
         paddingTop: 8,
-        paddingBottom: 8
+        paddingBottom: 8,
+        paddingStart: 10,
+        paddingEnd: 10,
+        backgroundColor: '#ffffff'
     },
     textInputStyle: {
         flex: 1,
-        marginStart: 4,
-        marginEnd: 4
+        marginStart: 8,
+        marginEnd: 8,
+        padding: 0
     },
     containerPhotoStyle: {
         width: 30,
