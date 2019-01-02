@@ -35,9 +35,6 @@ const styles = {
         flexDirection: 'row',
         alignItems: 'center',
         maxHeight: 48,
-        margin: 4,
-        paddingStart: 4,
-        paddingEnd: 4
     },
     containerTextStyle: {
         flex: 1,

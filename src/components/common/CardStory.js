@@ -2,24 +2,32 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { Avatar } from 'react-native-elements';
 
-const CardStory = () => {
+type Props = {
+    avatar: any, // require source image
+    storyImg: any, // require source image
+    footer: string, // name such as Tran Thu or Add to Story
+    isHaveCurve: boolean, // show avatar with blue curve or not
+}
+
+const CardStory = (props: Props) => {
     const { containerStyle, imgStyle, avatarStyle, textStyle } = styles;
+    const { avatar, storyImg, footer, isHaveCurve } = props;
     return (
         <View style={containerStyle}>
             <Image
-                source={require('../img/avatar.png')}
+                source={storyImg}
                 style={imgStyle}
             />
             <View style={avatarStyle}>
                 <Avatar
                     size="small"
                     rounded
-                    source={require('../img/avatar.png')}
-                    containerStyle={{ borderColor: '#2d7fc8', borderWidth: 4, borderRadius: 90 }}
+                    source={avatar}
+                    containerStyle={isHaveCurve ? { borderColor: '#2d7fc8', borderWidth: 4, borderRadius: 90 } : {}}
                 />
             </View>
             <View style={textStyle}>
-                <Text style={{ color: '#F7F7F7', fontSize: 10, fontWeight: 'bold' }}>Add to story</Text>
+                <Text style={{ color: '#F7F7F7', fontSize: 10, fontWeight: 'bold' }}>{footer}</Text>
             </View>
         </View>
     );

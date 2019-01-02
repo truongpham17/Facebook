@@ -3,13 +3,13 @@ import { View, Text, Image } from 'react-native';
 
 type Props = {
     reaction: Array<any>,
-    description: string,
-    comment: string,
+    nameReaction: string,
+    commentReaction: string,
 }
 
 const Reaction = (props: Props) => {
     const { containerStyle, containerReactionStyle, imageStyle, textStyle } = styles;
-    const { description, reaction, comment } = props;
+    const { nameReaction, reaction, commentReaction } = props;
     const images = [];
     reaction.forEach(element => {
         images.push(<Image source={element} style={imageStyle} />);
@@ -18,10 +18,10 @@ const Reaction = (props: Props) => {
         <View style={containerStyle}>
             <View style={containerReactionStyle}>
                 {images}
-                <Text style={textStyle}>{description}</Text>
+                <Text style={textStyle}>{nameReaction}</Text>
             </View>
-            <View>
-                <Text>{comment}</Text>
+            <View style={{ flex: 3, alignItems: 'flex-end' }}>
+                <Text>{commentReaction}</Text>
             </View>
         </View>
         
@@ -31,12 +31,16 @@ const Reaction = (props: Props) => {
 const styles = {
     containerStyle: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 6,
+        marginBottom: 6
     },
     containerReactionStyle: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        alignItems: 'center'
+        alignItems: 'center',
+        flex: 6
     },
     imageStyle: {
         width: 14,

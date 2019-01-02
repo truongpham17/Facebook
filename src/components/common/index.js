@@ -9,3 +9,4 @@ export * from './NewsContent';
 export * from './LikeButton';
 export * from './OptionMenu';
 export * from './ListItem';
+export * from './OptionMenuDialog';

@@ -1,39 +1,43 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
 type Props = {
     status: Array<String>,
-    content: Array<React.Node>
+    content: ?Array<React.Node>
 }
 
 const NewsContent = (props: Props) => {
     const { status, content } = props;
     const { statusStyle, contentStyle } = styles;
     const images = [];
-    content.forEach(element => {
-        images.push(element);
-    });
+    if (content) {
+        content.forEach(element => {
+            images.push(<Image source={element} style={{ height: undefined, width: undefined, flex: 1 }} />);
+        });
+    }
+    
     return (
         <View>
             <View style={statusStyle}>
-                <Text style={{ color:"#000000" }}>{status}</Text>
+                <Text style={{ color: '#000000', fontSize: 18 }}>{status}</Text>
             </View>
-            <View style={contentStyle}>
-               {images}
-            </View>
+            { content ? 
+                (<View style={contentStyle}>
+                    {images}
+                </View>) : null
+            }
+            
         </View>
     );
 };
 
 const styles = {
     statusStyle: {
-        margin: 8
     },
     contentStyle: {
-        maxHeight: 600,
-        minHeight: 300,
-        width: null,
-        flex: 1,
+        width: '100%',
+        height: 400,
+        flexWrap: 'wrap'
     }
 };
 

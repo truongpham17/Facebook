@@ -2,8 +2,21 @@ import React from 'react';
 import { View, ScrollView, Text } from 'react-native';
 import { CardStory } from '../common';
 
-const StoryBoard = () => {
+const StoryBoard = ({ data }) => {
     const { containerStyle, textContainerStyle, textStyle1, textStyle2 } = styles;
+    const card = [];
+    if (data) {
+        data.forEach(element => {
+            card.push(
+                <CardStory 
+                    avatar={element.avatar}
+                    storyImg={element.storyImg}
+                    footer={element.footer}
+                    isHaveCurve={element.isHaveCurve}
+                />
+            );
+        });
+    }
     return (
                 <View style={containerStyle}>
                     <View style={textContainerStyle}>
@@ -14,12 +27,7 @@ const StoryBoard = () => {
                         directionalLockEnabled={false}
                         horizontal
                     >   
-                        <CardStory />
-                        <CardStory />
-                        <CardStory />
-                        <CardStory />
-                        <CardStory />
-                        <CardStory />
+                        {card}
                      </ScrollView>
                 </View>
            
