@@ -6,3 +6,6 @@ export * from './NewsTitle';
 export * from './Reaction';
 export * from './CommentInput';
 export * from './NewsContent';
+export * from './LikeButton';
+export * from './OptionMenu';
+export * from './ListItem';
