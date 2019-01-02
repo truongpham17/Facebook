@@ -1,8 +1,9 @@
 // @flow
 import { Avatar } from 'react-native-elements';
-import { TextInput } from '../common';
 import React from 'react';
 import { View, Image } from 'react-native';
+import { TextInput } from '../common';
+
 
 const HeaderStatus = () => {
     const { containerStyle, textInputStyle, containerPhotoStyle } = styles;

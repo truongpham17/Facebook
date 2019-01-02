@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { View, FlatList, Text } from 'react-native';
-import { Icon } from 'react-native-elements';
 import { MyListItem } from '../common';
 
 type Props = {

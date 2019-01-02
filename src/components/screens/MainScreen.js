@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import { View, Image, ScrollView } from 'react-native';
-import { Icon } from 'react-native-elements';
-import { HeaderStatus, StoryBoard, OptionMenuDialog } from '../facebook-components';
-import { NewsTitle, CommentInput, Reaction, NewsContent, MyListItem, OptionMenu } from '../common';
+import { View, Image, ScrollView, Text } from 'react-native';
 
 
 class MainScreen extends Component {
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         tabBarIcon: ({ focused }) => (
             focused ? 
             <Image 
@@ -26,7 +23,7 @@ class MainScreen extends Component {
         return (
             <ScrollView style={{ flex: 1 }}>
                 <View style={{ flex: 1, backgroundColor: '#eeeeee' }}>
-                    <OptionMenuDialog isShow={this.state.isShow} onTouchOutside={() => {this.setState({ isShow: false }); }}/>
+                    <Text> Main Screen </Text>
                 </View>
             </ScrollView>
 

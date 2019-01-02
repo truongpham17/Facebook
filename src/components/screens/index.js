@@ -1,8 +1,8 @@
 
 import { createStackNavigator } from 'react-navigation';
-import MainNavigator from './BottomNavigator';
 import React from 'react';
 import { Header } from '../common';
+import MainNavigator from './BottomNavigator';
 
 export default createStackNavigator(
     {

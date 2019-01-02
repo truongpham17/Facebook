@@ -3,7 +3,7 @@ import { View, Text, Image } from 'react-native';
 import { Header } from '../common/index';
 
 class MainScreen extends Component {
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = () => ({
         header: null,
         tabBarIcon: ({ focused }) => (
             focused ? 

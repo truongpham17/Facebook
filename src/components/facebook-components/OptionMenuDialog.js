@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { OptionMenu } from '../common';
 import Dialog, { DialogContent, SlideAnimation } from 'react-native-popup-dialog';
 

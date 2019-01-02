@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, PanResponder, Animated } from 'react-native';
+import { Text, View, PanResponder, Animated } from 'react-native';
 
 const images = [
   { id: 'like', img: 'http://i.imgur.com/LwCYmcM.gif' },

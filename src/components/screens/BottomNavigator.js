@@ -1,6 +1,5 @@
 // @flow
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import React from 'react';
 import MainScreen from './MainScreen';
 import SearchGroup from './SearchGroup';
 import SearchVideo from './SearchVideo';
