@@ -1,0 +1,65 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red42\green55\blue62;\red245\green245\blue245;\red0\green0\blue0;
+\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c21569\c27843\c30980;\cssrgb\c96863\c96863\c96863;\cssrgb\c0\c0\c0\c84314;
+\cssrgb\c0\c0\c0\c4706;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 This contains all command things that you need to build your app\
+\
+Open android amulator:\
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+Cd /Library/Android/sdk/emulator/\
+emulator -avd Nexus_5X_API_26\
+\
+\
+Navigator:\
+ - Stack navigator: contains many screens, include method pop, push, navigate, goBack\
+ - Switch navigator: contains many Stack navigator, \
+\
+Install eslint\
+	- eslint \'97 init\
+	- npm install \'97-save-dev eslint-config-rallycoding\
+create file name .eslintrc and type\
+	\{ \
+		\'93extends\'94: \'93rallycoding\'94\
+	\}\
+Install flow:\
+	- npm i flow-bin@0.78.0 -\'97save-dev\
+\
+For mobx:\
+	Decrease Mobx to ^4.3.2 and then it\'92s done\
+\
+Mobx install:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs32 \cf4 \cb5 npm i mobx mobx-react --save\
+npm i @babel/plugin-proposal-decorators --save-dev\
+.babelrc\
+\'93Plugins\'94: [\cb1 \
+\cb5     [\cb1 \
+\cb5       "{\field{\*\fldinst{HYPERLINK "http://twitter.com/babel/plugin-proposal-decorator"}}{\fldrslt \ul @babel/plugin-proposal-decorator}}s",\cb1 \
+\cb5       \{\cb1 \
+\cb5         "legacy": true\cb1 \
+\cb5       \}\cb1 \
+\cb5     ]\cb1 \
+\cb5   ]\
+\
+\
+eslint: ok\
+Prettier: ok\
+Mobx: ok\
+Flow: done :D\
+\
+TruongPMSE63192@fpt.edu.vn\
+\
+Add this to .flowconfig to disable error annotation\
+esproposal.decorators=ignore\
+Who, what\
+\
+}
