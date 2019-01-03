@@ -1,37 +1,55 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import { Avatar } from 'react-native-elements';
+import { inject, observer } from 'mobx-react';
 
 type Props = {
     avatar: any, // require source image
     storyImg: any, // require source image
     footer: string, // name such as Tran Thu or Add to Story
-    isHaveCurve: boolean, // show avatar with blue curve or not
+    isHaveCurve: boolean, // show avatar with blue curve or not,
+    storyStore: any
 }
 
-const CardStory = (props: Props) => {
-    const { containerStyle, imgStyle, avatarStyle, textStyle } = styles;
-    const { avatar, storyImg, footer, isHaveCurve } = props;
-    return (
-        <View style={containerStyle}>
-            <Image
-                source={storyImg}
-                style={imgStyle}
-            />
-            <View style={avatarStyle}>
-                <Avatar
-                    size="small"
-                    rounded
-                    source={avatar}
-                    containerStyle={isHaveCurve ? { borderColor: '#2d7fc8', borderWidth: 4, borderRadius: 90 } : {}}
-                />
-            </View>
-            <View style={textStyle}>
-                <Text style={{ color: '#F7F7F7', fontSize: 10, fontWeight: 'bold' }}>{footer}</Text>
-            </View>
-        </View>
-    );
-};
+@inject('storyStore')
+@observer
+class CardStory extends React.Component<Props> {
+    render() {
+        const { containerStyle, imgStyle, avatarStyle, textStyle } = styles;
+        const { avatar, storyImg, footer, isHaveCurve, time, storyStore } = this.props;
+        return (
+            <TouchableWithoutFeedback
+                onPress={() => {
+                    storyStore.setIsShowStoryCard(true);
+                    storyStore.setStoryInfo({
+                        avatar: avatar,
+                        contentImg: storyImg,
+                        time: time,
+                        title: footer
+                    });
+                }}
+            >
+                <View style={containerStyle}>
+                    <Image
+                        source={storyImg}
+                        style={imgStyle}
+                    />
+                    <View style={avatarStyle}>
+                        <Avatar
+                            size="small"
+                            rounded
+                            source={avatar}
+                            containerStyle={isHaveCurve ? { borderColor: '#2d7fc8', borderWidth: 4, borderRadius: 90 } : {}}
+                        />
+                    </View>
+                    <View style={textStyle}>
+                        <Text style={{ color: '#F7F7F7', fontSize: 10, fontWeight: 'bold' }}>{footer}</Text>
+                    </View>
+                </View>
+            </TouchableWithoutFeedback>
+        );
+    }
+}
 
 const styles = {
     containerStyle: {

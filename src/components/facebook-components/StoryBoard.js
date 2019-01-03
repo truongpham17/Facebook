@@ -2,7 +2,7 @@ import React from 'react';
 import { View, ScrollView, Text } from 'react-native';
 import { CardStory } from '../common';
 
-const StoryBoard = ({ data }) => {
+const StoryBoard = ({ data, onPress }) => {
     const { containerStyle, textContainerStyle, textStyle1, textStyle2 } = styles;
     const card = [];
     if (data) {
@@ -13,6 +13,7 @@ const StoryBoard = ({ data }) => {
                     storyImg={element.storyImg}
                     footer={element.footer}
                     isHaveCurve={element.isHaveCurve}
+                    time={element.time}
                 />
             );
         });

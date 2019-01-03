@@ -4,27 +4,26 @@ import { Avatar } from 'react-native-elements';
 import { OptionMenuDialog } from '../common';
 
 type Props = {
-    avatar: any,
+    avatar: any, // source image require
     title: string,
     time: string,
     icon: any,
     titleDescription: string,
-    style: {}
+    textStyle: {}
 }
 
 const NewsTitle = (props: Props) => {
-    const { avatar, title, time, icon, titleDescription, style } = props;
+    const { avatar, title, time, icon, titleDescription, textStyle } = props;
     const { 
         containerStyle, 
         imageContainerStyle, 
-        titleContainerStyle, 
         timeContainerStyle,
         textTimeStyle,
         textTitleStyle,
         imageStyle,
     } = styles;
     return (
-        <View style={style}>
+        <View style={{ flex: 1 }}>
             { titleDescription ? 
                 <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
                     <View style={{ flex: 16 }}>
@@ -33,29 +32,32 @@ const NewsTitle = (props: Props) => {
                     <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
                         <OptionMenuDialog />
                     </View>
-                </View> : null
+                </View> : undefined
             }
-            <View style={containerStyle}>
-                <View style={imageContainerStyle}>
-                    <Avatar
-                        source={avatar}
-                        size="small"
-                        rounded
-                    />
-                </View>
-                <View style={titleContainerStyle}>
-                    <Text style={textTitleStyle}>{title}</Text>
-                    <View style={timeContainerStyle}>
-                        <Text style={textTimeStyle}>{time}</Text>
-                        <Image
-                            source={icon}
-                            style={imageStyle}
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                <View style={containerStyle}>
+                    <View style={imageContainerStyle}>
+                        <Avatar
+                            source={avatar}
+                            size="small"
+                            rounded
                         />
                     </View>
+                    <View>
+                        <Text style={[textTitleStyle, textStyle]}>{title}</Text>
+                        <View style={timeContainerStyle}>
+                            <Text style={[textTimeStyle, textStyle]}>{time}</Text>
+                            <Image
+                                source={icon}
+                                style={imageStyle}
+                            />
+                        </View>
+                    </View>
                 </View>
-                { titleDescription ? null : 
+                
+                { titleDescription ? undefined : 
                     <View style={{ marginStart: 8 }}>
-                        <OptionMenuDialog />
+                        <OptionMenuDialog textStyle={textStyle}/>
                     </View>
                 }
             </View>
@@ -66,15 +68,13 @@ const NewsTitle = (props: Props) => {
 
 const styles = {
     containerStyle: {
-        backgroundColor: '#ffffff',
+        flex: 1,
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     imageContainerStyle: {
         marginEnd: 4,
-    },
-    titleContainerStyle: {
     },
     timeContainerStyle: {
         flexDirection: 'row',

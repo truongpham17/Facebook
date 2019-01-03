@@ -4,11 +4,14 @@ import { View, TextInput as ReTextInput } from 'react-native';
 
 type Props = {
     placeholder: string,
-    icons: Array<any>
+    icons: Array<any>,
+    textStyle: {},
+    textContainerStyle: {},
+    placeholderTextColor: string
 }
 const TextInput = (props: Props) => {
     const { containerStyle, textInputStyle, containerIconStyle } = styles;
-    const { placeholder, icons } = props;
+    const { placeholder, icons, textStyle, textContainerStyle, placeholderTextColor } = props;
     const iconsNode = [];
     if (icons) {
         icons.forEach(element => {
@@ -17,11 +20,11 @@ const TextInput = (props: Props) => {
     }
     
     return (
-        <View style={containerStyle}>
+        <View style={[containerStyle, textContainerStyle]}>
             <ReTextInput 
-                style={textInputStyle} 
+                style={[textInputStyle, textStyle]} 
                 placeholder={placeholder}
-                placeholderTextColor='#646464'
+                placeholderTextColor={placeholderTextColor}
             />
             <View style={containerIconStyle}>
                 {iconsNode}
@@ -49,7 +52,8 @@ const styles = {
         justifyContent: 'center',
         marginStart: 12,
         padding: 0,
-        color: '#646464'
+        color: '#646464',
+        flex: 1
     },
     containerIconStyle: {
         flexDirection: 'row',

@@ -3,7 +3,11 @@ import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { OptionMenu } from '.';
 import Dialog, { DialogContent, SlideAnimation } from 'react-native-popup-dialog';
 
-class OptionMenuDialog extends React.Component {
+type Props = {
+    textStyle: {}
+}
+
+class OptionMenuDialog extends React.Component<Props> {
     
     state = {
         isShow: false,
@@ -13,11 +17,12 @@ class OptionMenuDialog extends React.Component {
     }
 
     render() {
+        const { textStyle } = this.props;
         return (
             <View style={{ flex: 1 }}>
                 <TouchableWithoutFeedback onPress={() => { this.setState({ isShow: true }); }}>
                     <View>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>···</Text>
+                        <Text style={[{ fontSize: 18, fontWeight: 'bold' }, textStyle]}>···</Text>
                     </View>
                 </TouchableWithoutFeedback>
                 <Dialog

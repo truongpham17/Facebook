@@ -10,3 +10,7 @@ export * from './LikeButton';
 export * from './OptionMenu';
 export * from './ListItem';
 export * from './OptionMenuDialog';
+export * from './RoundNumber';
+export * from './HeaderIcon';
+export * from './RunningBar';
+export * from './FloatView';

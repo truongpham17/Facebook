@@ -20,7 +20,6 @@ class NewsFeed extends React.Component<Props> {
 
     constructor(props) {
         super(props);
-
     }
 
     render() {
@@ -28,10 +27,11 @@ class NewsFeed extends React.Component<Props> {
 
         return (
             <View style={{ backgroundColor: '#ffffff', padding: 8 }}>
+                
                 <NewsTitle 
                     titleDescription={titleDescription}
                     avatar={avatar}
-                    title={title}
+                    title="Truong Pham"
                     time={time}
                     icon={icon}
                 />

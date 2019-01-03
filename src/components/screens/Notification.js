@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
-import { Header } from '../common/index';
+import { HeaderIcon } from '../common';
 
 class MainScreen extends Component {
     static navigationOptions = () => ({
         header: null,
         tabBarIcon: ({ focused }) => (
-            focused ? 
-            <Image 
-                source={require('../img/notification_active.jpeg')} 
-                style={{ height: 30, width: 30 }} 
-            /> : 
-            <Image
-                source={require('../img/notification.png')} 
-                style={{ height: 30, width: 30 }} 
+            <HeaderIcon 
+                icon={focused ? require('../img/notification_active.jpeg') : require('../img/notification.png')}
+                numberOfNotification={8}
             />
         )
     });
