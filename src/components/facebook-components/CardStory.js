@@ -10,7 +10,8 @@ type Props = {
     time: string,
     title: string,
 }
-
+@inject('storyStore')
+@observer
 class CardStory extends React.Component<Props> {
     render() {
         const { avatar, contentImg, time, title } = this.props;
@@ -18,7 +19,7 @@ class CardStory extends React.Component<Props> {
         console.log(title);
         return (
             <View style={{ flex: 1, padding: 6, backgroundColor: '#C3BCBA' }}>
-                <RunningBar time={3000} viewStyle={{ backgroundColor: '#ffffff', height: 4 }} />
+                <RunningBar time={6000} viewStyle={{ backgroundColor: '#ffffff', height: 4 }} />
                 <View style={containerStyle}>
                     <View style={headerContainerStyle}>
                         <NewsTitle 
@@ -33,6 +34,7 @@ class CardStory extends React.Component<Props> {
                             size={28}
                             color="#ffffff"
                             containerStyle={{ marginStart: 10 }}
+                            onPress={() => { this.props.storyStore.setDismissFloatView(true); }}
                         />
                     </View>
                     <View style={imgContainer}>

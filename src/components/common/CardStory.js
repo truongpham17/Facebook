@@ -20,8 +20,7 @@ class CardStory extends React.Component<Props> {
         return (
             <TouchableWithoutFeedback
                 onPress={() => {
-                    storyStore.setIsShowStoryCard(true);
-                    storyStore.setStoryInfo({
+                    storyStore.openCard({
                         avatar: avatar,
                         contentImg: storyImg,
                         time: time,

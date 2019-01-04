@@ -27,6 +27,7 @@ const StoryBoard = ({ data, onPress }) => {
                     <ScrollView
                         directionalLockEnabled={false}
                         horizontal
+                        showsHorizontalScrollIndicator={false}
                     >   
                         {card}
                      </ScrollView>

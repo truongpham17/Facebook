@@ -1,13 +1,12 @@
 import { createAppContainer, SafeAreaView } from 'react-navigation';
 import { View, Text, Image, Animated, Easing } from 'react-native';
 import React from 'react';
-import AppNavigator from './src/components/screens';
+import App from './src/components/screens';
 import { FloatView } from './src/components/common';
 import { CardStory } from './src/components/facebook-components';
 import { Provider } from 'mobx-react';
 import stores from './src/components/mobx';
 
-const App = createAppContainer(AppNavigator);
 
 class Main extends React.Component {
     render() {

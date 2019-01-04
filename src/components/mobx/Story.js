@@ -1,13 +1,22 @@
-import { observable, action, autorun } from 'mobx';
+import { observable, action, autorun, reaction } from 'mobx';
 
 class Story {
     @observable isShowStoryCard = false;
+    @observable isDismissFloatView = false;
     @observable number = 2;
-    @observable storyInfo = {
+    
+    initValueStoryInfo = {
         avatar: null,
         contentImg: null,
         time: '',
         title: ''
+    }
+    @observable storyInfo = { ...this.initValueStoryInfo }
+
+    @observable isShowDialog = false;
+
+    setIsShowDialog(value) {
+        this.isShowDialog = value;
     }
 
     setNumber(value) {
@@ -22,9 +31,21 @@ class Story {
         this.storyInfo = { ...value };
     }
 
-    debug = autorun(() => {
-        console.log(this.number);
-    });
+    setDismissFloatView(value) {
+        this.isDismissFloatView = value;
+    }
+
+
+    closeCard() {
+        this.isShowStoryCard = false;
+        this.isDismissFloatView = true;
+        this.storyInfo = { ...this.initValueStoryInfo };
+    }
+    openCard(value) {
+        this.isShowStoryCard = true;
+        this.isDismissFloatView = false;
+        this.storyInfo = { ...value };
+    }
 }
 
 export default Story;

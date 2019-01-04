@@ -57,7 +57,7 @@ const NewsTitle = (props: Props) => {
                 
                 { titleDescription ? undefined : 
                     <View style={{ marginStart: 8 }}>
-                        <OptionMenuDialog textStyle={textStyle}/>
+                        <OptionMenuDialog textStyle={textStyle} />
                     </View>
                 }
             </View>

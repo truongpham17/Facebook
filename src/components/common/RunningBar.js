@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Animated, Easing } from 'react-native';
+import { inject, observer } from 'mobx-react';
 
 type viewStyle = {
     backgroundColor: string,
@@ -10,7 +11,8 @@ type Props = {
     viewStyle: viewStyle,
     time: number
 }
-
+@inject('storyStore')
+@observer
 class RunningBar extends React.Component<Props> {
     constructor(props) {
         super(props);
@@ -27,13 +29,17 @@ class RunningBar extends React.Component<Props> {
                 duration: this.props.time,
                 easing: Easing.linear
             }
-        ).start(() => this.animate());
+        ).start(() => { 
+            this.props.storyStore.setDismissFloatView(true); 
+            this.props.storyStore.setIsShowDialog(false);
+        });
     }
     render() {
         const widthAnimated = this.animatedValue.interpolate({
             inputRange: [0, 1],
             outputRange: ['0%', '100%']
         });
+
         return (
             <View style={{ width: '100%', height: 4 }}>
                 <Animated.View
